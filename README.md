@@ -54,7 +54,7 @@ Both instructions need to be run together, otherwise jekyll cannot find the gems
 docker run --rm --name jekyll-blog -v ${PWD}:/srv/jekyll -p 4000:4000 jekyll-blog bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --livereload"
 ```
 
-Open your web browser and paste the URL: `http://localhost:4000`
+Open your web browser and paste the URL: `http://localhost:4000/jekyll-blog`
 
 ### Docker compose
 
@@ -70,7 +70,7 @@ To remove and stop the containers:
 docker-compose down
 ```
 
-Open your web browser and paste the URL: `http://localhost:4000`
+Open your web browser and paste the URL: `http://localhost:4000/jekyll-blog`
 
 ### Devcontainer
 
@@ -79,7 +79,7 @@ bundle install
 bundle exec jekyll serve --host 0.0.0.0 --livereload
 ```
 
-**Important**: Use `http://localhost:4001` instead of `4000`
+**Important**: Use `http://localhost:4001/jekyll-blog` instead of `4000`
 
 
 ## Create GitHub Page
