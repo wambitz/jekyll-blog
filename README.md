@@ -82,21 +82,13 @@ bundle exec jekyll serve --host 0.0.0.0 --livereload
 **Important**: Use `http://localhost:4001` instead of `4000`
 
 
-## Use Persistent Gem Directory with Volume Mapping
+## Create GitHub Page
 
-You can map a volume to persist the gems across Docker sessions, which will ensure that gems installed during one run are available in subsequent runs.
-
-<!-- ## Install dependencies:
-TODO: Analyze this approach
- -->
-
-```bash
-docker run --rm --name personal-portfolio -v ${PWD}/personal-portfolio:/srv/jekyll -v ${PWD}/gems:/usr/local/bundle -p 4000:4000 jekyll-personal-portfolio bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --livereload"
-```
+Follow the GitHub [official documentation](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll).
 
 ## Known Issues:
 
-It looks like the gems are correctly installed in the Docker container once `bundle install` is manually run within an interactive session. However, when running the jekyll serve command directly via Docker, the container isn't finding the gems that were supposedly installed.
+It looks like the gems are correctly installed in the Docker container once `bundle install` is manually run within an interactive session. However, when running the jekyll serve command directly via `docker run`, the container isn not finding the gems that were supposedly installed.
 
 **Understanding the Problem**: The issue is likely due to the fact that when `bundle install` is run in an interactive session, the gems are installed in the container's filesystem. However, when `jekyll serve` is run in a non-interactive Docker command, it's possible that the gems aren't being recognized because they weren't installed in the current session or due to some caching or volume mapping issues.
 
